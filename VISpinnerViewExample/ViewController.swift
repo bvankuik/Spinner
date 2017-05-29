@@ -33,6 +33,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.view.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
+
         self.spinnerButton.translatesAutoresizingMaskIntoConstraints = false
         self.spinnerButton.setTitle("Show spinner", for: .normal)
         self.spinnerButton.setTitleColor(UIColor.blue, for: .normal)
