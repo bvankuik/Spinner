@@ -23,6 +23,38 @@ public class VIBaseView: UIView {
     private let animationDuration = 0.33
     private let visibleDuration = 2.5
 
+    // MARK: - Public functions
+
+    public static func showBaseView(baseView: VIBaseView, in containingView: UIView) {
+        if containingView != baseView.superview {
+            baseView.removeFromSuperview()
+            containingView.addSubview(baseView)
+            let constraints = [
+                baseView.centerXAnchor.constraint(equalTo: containingView.centerXAnchor),
+                baseView.centerYAnchor.constraint(equalTo: containingView.centerYAnchor),
+                baseView.widthAnchor.constraint(lessThanOrEqualTo: containingView.widthAnchor, multiplier: 1.0, constant: -10)
+            ]
+            containingView.addConstraints(constraints)
+        }
+
+        containingView.bringSubview(toFront: baseView)
+
+        switch baseView.state {
+        case .disappeared:
+            baseView.appear()
+        case .disappearing:
+            baseView.layer.removeAllAnimations()
+            baseView.disappearTask?.cancel()
+            baseView.alpha = 1.0
+            baseView.scheduleDisappear()
+        case .appearing:
+            baseView.layer.removeAllAnimations()
+            baseView.scheduleDisappear()
+        case .appeared:
+            baseView.scheduleDisappear()
+        }
+    }
+
     // MARK: - Internal functions
 
     internal func appear() {
@@ -59,6 +91,20 @@ public class VIBaseView: UIView {
                 self.removeFromSuperview()
             }
         })
+    }
+
+    // MARK: - Life cycle
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.backgroundColor = UIColor.gray
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.alpha = 0.0
+        self.layer.cornerRadius = 5.0
+    }
+
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("Unsupported")
     }
 
 }

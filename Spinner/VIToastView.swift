@@ -19,36 +19,12 @@ public class VIToastView: VIBaseView {
 
     // MARK: - Public functions
 
-    public static func show(text: String, in view: UIView) {
+    public static func show(text: String, in containingView: UIView) {
         let toastView = VIToastView.shared
-        if view != toastView.superview {
-            toastView.removeFromSuperview()
-            view.addSubview(toastView)
-            let constraints = [
-                toastView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                toastView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                toastView.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 1.0, constant: -10)
-            ]
-            view.addConstraints(constraints)
-        }
         toastView.label.text = text
 
-        switch toastView.state {
-        case .disappeared:
-            toastView.appear()
-        case .disappearing:
-            toastView.layer.removeAllAnimations()
-            toastView.disappearTask?.cancel()
-            toastView.alpha = 1.0
-            toastView.scheduleDisappear()
-        case .appearing:
-            toastView.layer.removeAllAnimations()
-            toastView.scheduleDisappear()
-        case .appeared:
-            toastView.scheduleDisappear()
-        }
+        VIBaseView.showBaseView(baseView: toastView, in: containingView)
     }
-    
     // MARK: - Layout
 
     override public func layoutSubviews() {
@@ -79,11 +55,7 @@ public class VIToastView: VIBaseView {
         label.numberOfLines = 0
 
         super.init(frame: frame)
-        self.backgroundColor = UIColor.gray
-        self.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(label)
-        self.alpha = 0.0
-        self.layer.cornerRadius = 5.0
     }
 
     required public init?(coder aDecoder: NSCoder) {

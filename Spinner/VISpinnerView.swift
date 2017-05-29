@@ -11,7 +11,7 @@ public class VISpinnerView: VIBaseView {
 
     static let shared = VISpinnerView()
 
-    private let label = UILabel()
+    internal let label = UILabel()
     private let stackView = UIStackView()
     private let activityIndicatorView: UIActivityIndicatorView
     private var constraintsInstalled = false
@@ -20,34 +20,11 @@ public class VISpinnerView: VIBaseView {
 
     // MARK: - Public functions
 
-    public static func show(text: String, in view: UIView) {
+    public static func show(text: String, in containingView: UIView) {
         let spinnerView = VISpinnerView.shared
-        if view != spinnerView.superview {
-            spinnerView.removeFromSuperview()
-            view.addSubview(spinnerView)
-            let constraints = [
-                spinnerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                spinnerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                spinnerView.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 1.0, constant: -10)
-            ]
-            view.addConstraints(constraints)
-        }
         spinnerView.label.text = text
 
-        switch spinnerView.state {
-        case .disappeared:
-            spinnerView.appear()
-        case .disappearing:
-            spinnerView.layer.removeAllAnimations()
-            spinnerView.disappearTask?.cancel()
-            spinnerView.alpha = 1.0
-            spinnerView.scheduleDisappear()
-        case .appearing:
-            spinnerView.layer.removeAllAnimations()
-            spinnerView.scheduleDisappear()
-        case .appeared:
-            spinnerView.scheduleDisappear()
-        }
+        VIBaseView.showBaseView(baseView: spinnerView, in: containingView)
     }
 
     // MARK: - Layout
@@ -87,11 +64,7 @@ public class VISpinnerView: VIBaseView {
         stackView.addArrangedSubview(label)
 
         super.init(frame: frame)
-        self.backgroundColor = UIColor.gray
-        self.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(stackView)
-        self.alpha = 0.0
-        self.layer.cornerRadius = 5.0
     }
 
     required public init?(coder aDecoder: NSCoder) {
