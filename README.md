@@ -13,6 +13,10 @@ or
 
 The label will show, then fade after some time.
 
+# Screenshot
+
+![Screenshot](screenshot.png?raw=true "screenshot")
+
 # Wish list
 Some things are still missing:
 
