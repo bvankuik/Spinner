@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>VISpinnerViewExample.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>8950A6481EDC14DB005A7B1D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8950A65B1EDC18EC005A7B1D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
