@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8950A64E1EDC14DB005A7B1D /* Spinner.h in Headers */ = {isa = PBXBuildFile; fileRef = 8950A64C1EDC14DB005A7B1D /* Spinner.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8950A6571EDC1771005A7B1D /* VISpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8950A6561EDC1771005A7B1D /* VISpinnerView.swift */; };
 		8950A65F1EDC18EC005A7B1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8950A65E1EDC18EC005A7B1D /* AppDelegate.swift */; };
 		8950A6611EDC18EC005A7B1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8950A6601EDC18EC005A7B1D /* ViewController.swift */; };
 		8950A6641EDC18EC005A7B1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8950A6621EDC18EC005A7B1D /* Main.storyboard */; };
@@ -16,6 +15,7 @@
 		8950A6691EDC18EC005A7B1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8950A6671EDC18EC005A7B1D /* LaunchScreen.storyboard */; };
 		8950A66F1EDC1F29005A7B1D /* Spinner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8950A6491EDC14DB005A7B1D /* Spinner.framework */; };
 		8950A6701EDC1F29005A7B1D /* Spinner.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8950A6491EDC14DB005A7B1D /* Spinner.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8950A6751EDC291E005A7B1D /* VISpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8950A6741EDC291E005A7B1D /* VISpinnerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +46,6 @@
 		8950A6491EDC14DB005A7B1D /* Spinner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Spinner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8950A64C1EDC14DB005A7B1D /* Spinner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Spinner.h; sourceTree = "<group>"; };
 		8950A64D1EDC14DB005A7B1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8950A6561EDC1771005A7B1D /* VISpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VISpinnerView.swift; path = ../VISpinnerView.swift; sourceTree = "<group>"; };
 		8950A65C1EDC18EC005A7B1D /* VISpinnerViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VISpinnerViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8950A65E1EDC18EC005A7B1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8950A6601EDC18EC005A7B1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +53,7 @@
 		8950A6651EDC18EC005A7B1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8950A6681EDC18EC005A7B1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8950A66A1EDC18EC005A7B1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8950A6741EDC291E005A7B1D /* VISpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VISpinnerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,9 +96,9 @@
 		8950A64B1EDC14DB005A7B1D /* Spinner */ = {
 			isa = PBXGroup;
 			children = (
+				8950A6741EDC291E005A7B1D /* VISpinnerView.swift */,
 				8950A64C1EDC14DB005A7B1D /* Spinner.h */,
 				8950A64D1EDC14DB005A7B1D /* Info.plist */,
-				8950A6561EDC1771005A7B1D /* VISpinnerView.swift */,
 			);
 			path = Spinner;
 			sourceTree = "<group>";
@@ -234,7 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8950A6571EDC1771005A7B1D /* VISpinnerView.swift in Sources */,
+				8950A6751EDC291E005A7B1D /* VISpinnerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +466,7 @@
 				8950A6531EDC14DB005A7B1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8950A66B1EDC18EC005A7B1D /* Build configuration list for PBXNativeTarget "VISpinnerViewExample" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +475,7 @@
 				8950A66D1EDC18EC005A7B1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
