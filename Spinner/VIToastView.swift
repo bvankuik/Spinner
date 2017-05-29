@@ -7,26 +7,15 @@
 //
 
 
-enum VIToastViewState {
-    case disappeared
-    case disappearing
-    case appearing
-    case appeared
-}
-
-public class VIToastView: UIView {
+public class VIToastView: VIBaseView {
 
     static let shared = VIToastView()
 
     private let label = UILabel()
     private var constraintsInstalled = false
-    private let animationDuration = 0.33
-    private let visibleDuration = 2.5
     private let minimumHeight: CGFloat = 50.0
     private let minimumWidth: CGFloat = 150.0
     private let margin: CGFloat = 20.0
-    private var state: VIToastViewState = .disappeared
-    private var disappearTask: DispatchWorkItem?
 
     // MARK: - Public functions
 
@@ -59,7 +48,7 @@ public class VIToastView: UIView {
             toastView.scheduleDisappear()
         }
     }
-
+    
     // MARK: - Layout
 
     override public func layoutSubviews() {
@@ -78,44 +67,6 @@ public class VIToastView: UIView {
         }
 
         super.layoutSubviews()
-    }
-
-    // MARK: - Private functions
-
-    private func appear() {
-        self.state = .appearing
-        UIView.animate(withDuration: self.animationDuration, animations: {
-            self.alpha = 1.0
-        }) { (finished) in
-            self.alpha = 1.0
-            if finished {
-                self.state = .appeared
-                self.scheduleDisappear()
-            }
-        }
-    }
-
-    private func scheduleDisappear() {
-        self.disappearTask?.cancel()
-        self.disappearTask = DispatchWorkItem {
-            self.disappear()
-        }
-        if let task = self.disappearTask {
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + self.visibleDuration, execute: task)
-        }
-    }
-
-    private func disappear() {
-        self.state = .disappearing
-        UIView.animate(withDuration: self.animationDuration, animations: {
-            self.alpha = 0.0
-        }, completion: { (finished) in
-            if finished {
-                self.alpha = 0.0
-                self.state = .disappeared
-                self.removeFromSuperview()
-            }
-        })
     }
 
     // MARK: - Life cycle

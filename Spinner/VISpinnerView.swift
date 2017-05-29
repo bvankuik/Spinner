@@ -7,14 +7,7 @@
 //
 
 
-enum VISpinnerViewState {
-    case disappeared
-    case disappearing
-    case appearing
-    case appeared
-}
-
-public class VISpinnerView: UIView {
+public class VISpinnerView: VIBaseView {
 
     static let shared = VISpinnerView()
 
@@ -22,42 +15,38 @@ public class VISpinnerView: UIView {
     private let stackView = UIStackView()
     private let activityIndicatorView: UIActivityIndicatorView
     private var constraintsInstalled = false
-    private let animationDuration = 0.33
-    private let visibleDuration = 2.5
     private let minimumDimension: CGFloat = 150.0
     private let margin: CGFloat = 20.0
-    private var state: VISpinnerViewState = .disappeared
-    private var disappearTask: DispatchWorkItem?
 
     // MARK: - Public functions
 
     public static func show(text: String, in view: UIView) {
-        let toastView = VISpinnerView.shared
-        if view != toastView.superview {
-            toastView.removeFromSuperview()
-            view.addSubview(toastView)
+        let spinnerView = VISpinnerView.shared
+        if view != spinnerView.superview {
+            spinnerView.removeFromSuperview()
+            view.addSubview(spinnerView)
             let constraints = [
-                toastView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                toastView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                toastView.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 1.0, constant: -10)
+                spinnerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                spinnerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                spinnerView.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 1.0, constant: -10)
             ]
             view.addConstraints(constraints)
         }
-        toastView.label.text = text
+        spinnerView.label.text = text
 
-        switch toastView.state {
+        switch spinnerView.state {
         case .disappeared:
-            toastView.appear()
+            spinnerView.appear()
         case .disappearing:
-            toastView.layer.removeAllAnimations()
-            toastView.disappearTask?.cancel()
-            toastView.alpha = 1.0
-            toastView.scheduleDisappear()
+            spinnerView.layer.removeAllAnimations()
+            spinnerView.disappearTask?.cancel()
+            spinnerView.alpha = 1.0
+            spinnerView.scheduleDisappear()
         case .appearing:
-            toastView.layer.removeAllAnimations()
-            toastView.scheduleDisappear()
+            spinnerView.layer.removeAllAnimations()
+            spinnerView.scheduleDisappear()
         case .appeared:
-            toastView.scheduleDisappear()
+            spinnerView.scheduleDisappear()
         }
     }
 
@@ -79,44 +68,6 @@ public class VISpinnerView: UIView {
         }
 
         super.layoutSubviews()
-    }
-
-    // MARK: - Private functions
-
-    private func appear() {
-        self.state = .appearing
-        UIView.animate(withDuration: self.animationDuration, animations: {
-            self.alpha = 1.0
-        }) { (finished) in
-            self.alpha = 1.0
-            if finished {
-                self.state = .appeared
-                self.scheduleDisappear()
-            }
-        }
-    }
-
-    private func scheduleDisappear() {
-        self.disappearTask?.cancel()
-        self.disappearTask = DispatchWorkItem {
-            self.disappear()
-        }
-        if let task = self.disappearTask {
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + self.visibleDuration, execute: task)
-        }
-    }
-
-    private func disappear() {
-        self.state = .disappearing
-        UIView.animate(withDuration: self.animationDuration, animations: {
-            self.alpha = 0.0
-        }, completion: { (finished) in
-            if finished {
-                self.alpha = 0.0
-                self.state = .disappeared
-                self.removeFromSuperview()
-            }
-        })
     }
 
     // MARK: - Life cycle

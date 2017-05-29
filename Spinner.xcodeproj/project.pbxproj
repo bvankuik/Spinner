@@ -17,6 +17,7 @@
 		8950A6701EDC1F29005A7B1D /* Spinner.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8950A6491EDC14DB005A7B1D /* Spinner.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8950A6751EDC291E005A7B1D /* VISpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8950A6741EDC291E005A7B1D /* VISpinnerView.swift */; };
 		8950A6771EDC2D51005A7B1D /* VIToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8950A6761EDC2D51005A7B1D /* VIToastView.swift */; };
+		8950A6791EDC49CA005A7B1D /* VIBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8950A6781EDC49CA005A7B1D /* VIBaseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		8950A66A1EDC18EC005A7B1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8950A6741EDC291E005A7B1D /* VISpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VISpinnerView.swift; sourceTree = "<group>"; };
 		8950A6761EDC2D51005A7B1D /* VIToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIToastView.swift; sourceTree = "<group>"; };
+		8950A6781EDC49CA005A7B1D /* VIBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIBaseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				8950A64D1EDC14DB005A7B1D /* Info.plist */,
 				8950A6741EDC291E005A7B1D /* VISpinnerView.swift */,
 				8950A6761EDC2D51005A7B1D /* VIToastView.swift */,
+				8950A6781EDC49CA005A7B1D /* VIBaseView.swift */,
 			);
 			path = Spinner;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8950A6751EDC291E005A7B1D /* VISpinnerView.swift in Sources */,
+				8950A6791EDC49CA005A7B1D /* VIBaseView.swift in Sources */,
 				8950A6771EDC2D51005A7B1D /* VIToastView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
