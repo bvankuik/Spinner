@@ -1,5 +1,5 @@
 //
-//  VISpinnerView.swift
+//  VIToastView.swift
 //  Spinner
 //
 //  Created by Bart van Kuik on 29/05/2017.
@@ -7,32 +7,31 @@
 //
 
 
-enum VISpinnerViewState {
+enum VIToastViewState {
     case disappeared
     case disappearing
     case appearing
     case appeared
 }
 
-public class VISpinnerView: UIView {
+public class VIToastView: UIView {
 
-    static let shared = VISpinnerView()
+    static let shared = VIToastView()
 
     private let label = UILabel()
-    private let stackView = UIStackView()
-    private let activityIndicatorView: UIActivityIndicatorView
     private var constraintsInstalled = false
     private let animationDuration = 0.33
     private let visibleDuration = 2.5
-    private let minimumDimension: CGFloat = 150.0
+    private let minimumHeight: CGFloat = 50.0
+    private let minimumWidth: CGFloat = 150.0
     private let margin: CGFloat = 20.0
-    private var state: VISpinnerViewState = .disappeared
+    private var state: VIToastViewState = .disappeared
     private var disappearTask: DispatchWorkItem?
 
     // MARK: - Public functions
 
     public static func show(text: String, in view: UIView) {
-        let toastView = VISpinnerView.shared
+        let toastView = VIToastView.shared
         if view != toastView.superview {
             toastView.removeFromSuperview()
             view.addSubview(toastView)
@@ -68,12 +67,12 @@ public class VISpinnerView: UIView {
             self.constraintsInstalled = true
 
             let constraints = [
-                self.stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: self.margin),
-                self.stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -self.margin),
-                self.stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: self.margin),
-                self.stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -self.margin),
-                self.widthAnchor.constraint(greaterThanOrEqualToConstant: self.minimumDimension),
-                self.heightAnchor.constraint(greaterThanOrEqualToConstant: self.minimumDimension),
+                self.label.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+                self.widthAnchor.constraint(greaterThanOrEqualToConstant: self.minimumWidth),
+                self.heightAnchor.constraint(greaterThanOrEqualToConstant: self.minimumHeight),
+                self.label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: self.margin),
+                self.label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -self.margin),
+                self.heightAnchor.constraint(greaterThanOrEqualTo: self.label.heightAnchor, multiplier: 1.0, constant: self.margin)
             ]
             self.addConstraints(constraints)
         }
@@ -124,21 +123,14 @@ public class VISpinnerView: UIView {
     override init(frame: CGRect) {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.white
-        label.lineBreakMode = .byTruncatingTail
-        activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-        activityIndicatorView.startAnimating()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.spacing = self.margin
-        stackView.alignment = .center
-        stackView.distribution = .fillProportionally
-        stackView.addArrangedSubview(activityIndicatorView)
-        stackView.addArrangedSubview(label)
+        label.textAlignment = .center
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
 
         super.init(frame: frame)
         self.backgroundColor = UIColor.gray
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(stackView)
+        self.addSubview(label)
         self.alpha = 0.0
         self.layer.cornerRadius = 5.0
     }
@@ -147,4 +139,3 @@ public class VISpinnerView: UIView {
         fatalError("Unsupported")
     }
 }
-
