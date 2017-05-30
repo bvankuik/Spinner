@@ -24,7 +24,19 @@ public class VISpinnerView: VIStatusBaseView {
         let spinnerView = VISpinnerView.shared
         spinnerView.label.text = text
 
-        VIStatusBaseView.showBaseView(baseView: spinnerView, in: containingView)
+        spinnerView.centerView(in: containingView)
+
+        switch spinnerView.state {
+        case .disappeared:
+            spinnerView.appear()
+        case .disappearing:
+            spinnerView.layer.removeAllAnimations()
+            spinnerView.alpha = 1.0
+        case .appearing:
+            break
+        case .appeared:
+            break
+        }
     }
 
     public static func hide() {
@@ -36,7 +48,6 @@ public class VISpinnerView: VIStatusBaseView {
         case .disappearing:
             break
         case .appearing:
-            baseView.layer.removeAllAnimations()
             baseView.disappear()
         case .appeared:
             baseView.disappear()

@@ -27,3 +27,5 @@ Some things are still missing:
 * Tap to dismiss
 * Perhaps when a toastview is updated, the width shouldn't become smaller,
   only larger.
+* When a view is busy appearing, a disappear should not reset alpha to 1.0 but
+  nicely fade out again

@@ -20,24 +20,13 @@ public class VIStatusBaseView: UIView {
 
     internal var state: VIStatusBaseViewState = .disappeared
     internal var disappearTask: DispatchWorkItem?
-    internal let animationDuration = 0.33
+    internal let animationDuration = 2.33
     private let visibleDuration = 2.5
 
     // MARK: - Public functions
 
     public static func showBaseView(baseView: VIStatusBaseView, in containingView: UIView) {
-        if containingView != baseView.superview {
-            baseView.removeFromSuperview()
-            containingView.addSubview(baseView)
-            let constraints = [
-                baseView.centerXAnchor.constraint(equalTo: containingView.centerXAnchor),
-                baseView.centerYAnchor.constraint(equalTo: containingView.centerYAnchor),
-                baseView.widthAnchor.constraint(lessThanOrEqualTo: containingView.widthAnchor, multiplier: 1.0, constant: -10)
-            ]
-            containingView.addConstraints(constraints)
-        }
-
-        containingView.bringSubview(toFront: baseView)
+        baseView.centerView(in: containingView)
 
         switch baseView.state {
         case .disappeared:
@@ -56,6 +45,21 @@ public class VIStatusBaseView: UIView {
     }
 
     // MARK: - Internal functions
+
+    internal func centerView(in containingView: UIView) {
+        if containingView != self.superview {
+            self.removeFromSuperview()
+            containingView.addSubview(self)
+            let constraints = [
+                self.centerXAnchor.constraint(equalTo: containingView.centerXAnchor),
+                self.centerYAnchor.constraint(equalTo: containingView.centerYAnchor),
+                self.widthAnchor.constraint(lessThanOrEqualTo: containingView.widthAnchor, multiplier: 1.0, constant: -10)
+            ]
+            containingView.addConstraints(constraints)
+        }
+
+        containingView.bringSubview(toFront: self)
+    }
 
     internal func appear() {
         self.state = .appearing

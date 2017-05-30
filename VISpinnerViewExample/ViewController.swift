@@ -16,17 +16,16 @@ class ViewController: UIViewController {
     private let spinnerHideButton = UIButton()
     private let toastViewButton = UIButton()
     private let topView = UIView()
+    private let centerView = UIView()
     private let bottomView = UIView()
+    private var spinnerText = "a"
 
     func spinnerShowButtonTouchUpInside(sender: UIButton) {
-        let time = CFAbsoluteTimeGetCurrent()
-        let timeString = String(describing: time)
-
-        VISpinnerView.show(text: timeString, in: self.topView)
+        self.spinnerText += "a"
+        VISpinnerView.show(text: self.spinnerText, in: self.topView)
     }
     
     func spinnerHideButtonTouchUpInside(sender: UIButton) {
-        NSLog("spinnerHideButtonTouchUpInside")
         VISpinnerView.hide()
     }
     
@@ -70,6 +69,7 @@ class ViewController: UIViewController {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(self.topView)
+        stackView.addArrangedSubview(self.centerView)
         stackView.addArrangedSubview(self.bottomView)
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
