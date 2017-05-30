@@ -24,3 +24,6 @@ Some things are still missing:
   length. This happens instantly, and it should be updated in an animated way.
 * When the label is updated on an existing (visible) spinner/toastview, the
   label change should be animated.
+* Tap to dismiss
+* Perhaps when a toastview is updated, the width shouldn't become smaller,
+  only larger.
