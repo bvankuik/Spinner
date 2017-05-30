@@ -20,7 +20,7 @@ public class VIStatusBaseView: UIView {
 
     internal var state: VIStatusBaseViewState = .disappeared
     internal var disappearTask: DispatchWorkItem?
-    private let animationDuration = 0.33
+    internal let animationDuration = 0.33
     private let visibleDuration = 2.5
 
     // MARK: - Public functions

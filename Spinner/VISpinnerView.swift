@@ -27,6 +27,36 @@ public class VISpinnerView: VIStatusBaseView {
         VIStatusBaseView.showBaseView(baseView: spinnerView, in: containingView)
     }
 
+    public static func hide() {
+        let baseView = VISpinnerView.shared
+
+        switch baseView.state {
+        case .disappeared:
+            break
+        case .disappearing:
+            break
+        case .appearing:
+            baseView.layer.removeAllAnimations()
+            baseView.disappear()
+        case .appeared:
+            baseView.disappear()
+        }
+    }
+
+    // MARK: - Override functions
+
+    override internal func appear() {
+        self.state = .appearing
+        UIView.animate(withDuration: self.animationDuration, animations: {
+            self.alpha = 1.0
+        }) { (finished) in
+            self.alpha = 1.0
+            if finished {
+                self.state = .appeared
+            }
+        }
+    }
+
     // MARK: - Layout
 
     override public func layoutSubviews() {

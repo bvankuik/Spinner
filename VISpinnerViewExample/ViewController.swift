@@ -12,17 +12,24 @@ import Spinner
 
 class ViewController: UIViewController {
 
-    private let spinnerButton = UIButton()
+    private let spinnerShowButton = UIButton()
+    private let spinnerHideButton = UIButton()
     private let toastViewButton = UIButton()
     private let topView = UIView()
     private let bottomView = UIView()
 
-    func spinnerButtonTouchUpInside(sender: UIButton) {
+    func spinnerShowButtonTouchUpInside(sender: UIButton) {
         let time = CFAbsoluteTimeGetCurrent()
         let timeString = String(describing: time)
+
         VISpinnerView.show(text: timeString, in: self.topView)
     }
-
+    
+    func spinnerHideButtonTouchUpInside(sender: UIButton) {
+        NSLog("spinnerHideButtonTouchUpInside")
+        VISpinnerView.hide()
+    }
+    
     func toastViewButtonTouchUpInside(sender: UIButton) {
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
@@ -35,11 +42,17 @@ class ViewController: UIViewController {
 
         self.view.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
 
-        self.spinnerButton.translatesAutoresizingMaskIntoConstraints = false
-        self.spinnerButton.setTitle("Show spinner", for: .normal)
-        self.spinnerButton.setTitleColor(UIColor.blue, for: .normal)
-        self.spinnerButton.addTarget(self, action: #selector(spinnerButtonTouchUpInside(sender:)), for: .touchUpInside)
-        self.view.addSubview(self.spinnerButton)
+        self.spinnerShowButton.translatesAutoresizingMaskIntoConstraints = false
+        self.spinnerShowButton.setTitle("Show spinner", for: .normal)
+        self.spinnerShowButton.setTitleColor(UIColor.blue, for: .normal)
+        self.spinnerShowButton.addTarget(self, action: #selector(spinnerShowButtonTouchUpInside(sender:)), for: .touchUpInside)
+        self.view.addSubview(self.spinnerShowButton)
+
+        self.spinnerHideButton.translatesAutoresizingMaskIntoConstraints = false
+        self.spinnerHideButton.setTitle("Hide spinner", for: .normal)
+        self.spinnerHideButton.setTitleColor(UIColor.blue, for: .normal)
+        self.spinnerHideButton.addTarget(self, action: #selector(spinnerHideButtonTouchUpInside(sender:)), for: .touchUpInside)
+        self.view.addSubview(self.spinnerHideButton)
 
         self.toastViewButton.translatesAutoresizingMaskIntoConstraints = false
         self.toastViewButton.setTitle("Show toast", for: .normal)
@@ -47,10 +60,12 @@ class ViewController: UIViewController {
         self.toastViewButton.addTarget(self, action: #selector(toastViewButtonTouchUpInside(sender:)), for: .touchUpInside)
         self.view.addSubview(self.toastViewButton)
 
-        self.spinnerButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        self.spinnerButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        self.spinnerShowButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        self.spinnerShowButton.bottomAnchor.constraint(equalTo: self.spinnerHideButton.topAnchor).isActive = true
+        self.spinnerHideButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        self.spinnerHideButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         self.toastViewButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        self.toastViewButton.bottomAnchor.constraint(equalTo: self.spinnerButton.topAnchor).isActive = true
+        self.toastViewButton.bottomAnchor.constraint(equalTo: self.spinnerShowButton.topAnchor).isActive = true
 
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
