@@ -7,7 +7,7 @@
 //
 
 
-enum VIBaseViewState {
+enum VIStatusBaseViewState {
     case disappeared
     case disappearing
     case appearing
@@ -16,16 +16,16 @@ enum VIBaseViewState {
 
 
 
-public class VIBaseView: UIView {
+public class VIStatusBaseView: UIView {
 
-    internal var state: VIBaseViewState = .disappeared
+    internal var state: VIStatusBaseViewState = .disappeared
     internal var disappearTask: DispatchWorkItem?
     private let animationDuration = 0.33
     private let visibleDuration = 2.5
 
     // MARK: - Public functions
 
-    public static func showBaseView(baseView: VIBaseView, in containingView: UIView) {
+    public static func showBaseView(baseView: VIStatusBaseView, in containingView: UIView) {
         if containingView != baseView.superview {
             baseView.removeFromSuperview()
             containingView.addSubview(baseView)

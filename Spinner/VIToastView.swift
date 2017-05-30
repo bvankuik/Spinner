@@ -7,7 +7,7 @@
 //
 
 
-public class VIToastView: VIBaseView {
+public class VIToastView: VIStatusBaseView {
 
     static let shared = VIToastView()
 
@@ -23,7 +23,7 @@ public class VIToastView: VIBaseView {
         let toastView = VIToastView.shared
         toastView.label.text = text
 
-        VIBaseView.showBaseView(baseView: toastView, in: containingView)
+        VIStatusBaseView.showBaseView(baseView: toastView, in: containingView)
     }
     // MARK: - Layout
 

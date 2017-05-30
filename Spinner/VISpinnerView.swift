@@ -7,7 +7,7 @@
 //
 
 
-public class VISpinnerView: VIBaseView {
+public class VISpinnerView: VIStatusBaseView {
 
     static let shared = VISpinnerView()
 
@@ -24,7 +24,7 @@ public class VISpinnerView: VIBaseView {
         let spinnerView = VISpinnerView.shared
         spinnerView.label.text = text
 
-        VIBaseView.showBaseView(baseView: spinnerView, in: containingView)
+        VIStatusBaseView.showBaseView(baseView: spinnerView, in: containingView)
     }
 
     // MARK: - Layout
