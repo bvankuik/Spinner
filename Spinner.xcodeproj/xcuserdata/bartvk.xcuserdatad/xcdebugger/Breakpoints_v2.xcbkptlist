@@ -19,5 +19,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Spinner/VISimpleSpinnerView.swift"
+            timestampString = "526297352.242606"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "centerView(in:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VISpinnerViewExample.VISimpleSpinnerView.(centerView in _60ED5E1FE14443D6FCB1FEE4F69183E9) (in : __ObjC.UIView) -&gt; ()"
+                  moduleName = "VISpinnerViewExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bartvk/Projects/Spinner/Spinner/VISimpleSpinnerView.swift"
+                  timestampString = "526297422.628811"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Spinner.VISimpleSpinnerView.(centerView in _47369732BBE62A2FE0FE6FB84060E67E) (in : __ObjC.UIView) -&gt; ()"
+                  moduleName = "Spinner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bartvk/Projects/Spinner/Spinner/VISimpleSpinnerView.swift"
+                  timestampString = "526297422.752362"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

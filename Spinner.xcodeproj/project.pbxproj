@@ -18,6 +18,8 @@
 		8950A6751EDC291E005A7B1D /* VISpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8950A6741EDC291E005A7B1D /* VISpinnerView.swift */; };
 		8950A6771EDC2D51005A7B1D /* VIToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8950A6761EDC2D51005A7B1D /* VIToastView.swift */; };
 		8950A6791EDC49CA005A7B1D /* VIStatusBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8950A6781EDC49CA005A7B1D /* VIStatusBaseView.swift */; };
+		895C7D231F5EA44100AAEECA /* VISimpleSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C7D221F5EA44100AAEECA /* VISimpleSpinnerView.swift */; };
+		895C7D241F5EA44100AAEECA /* VISimpleSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C7D221F5EA44100AAEECA /* VISimpleSpinnerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,7 @@
 		8950A6741EDC291E005A7B1D /* VISpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VISpinnerView.swift; sourceTree = "<group>"; };
 		8950A6761EDC2D51005A7B1D /* VIToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIToastView.swift; sourceTree = "<group>"; };
 		8950A6781EDC49CA005A7B1D /* VIStatusBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIStatusBaseView.swift; sourceTree = "<group>"; };
+		895C7D221F5EA44100AAEECA /* VISimpleSpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VISimpleSpinnerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,7 @@
 				8950A6741EDC291E005A7B1D /* VISpinnerView.swift */,
 				8950A6761EDC2D51005A7B1D /* VIToastView.swift */,
 				8950A6781EDC49CA005A7B1D /* VIStatusBaseView.swift */,
+				895C7D221F5EA44100AAEECA /* VISimpleSpinnerView.swift */,
 			);
 			path = Spinner;
 			sourceTree = "<group>";
@@ -243,6 +247,7 @@
 				8950A6751EDC291E005A7B1D /* VISpinnerView.swift in Sources */,
 				8950A6791EDC49CA005A7B1D /* VIStatusBaseView.swift in Sources */,
 				8950A6771EDC2D51005A7B1D /* VIToastView.swift in Sources */,
+				895C7D231F5EA44100AAEECA /* VISimpleSpinnerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +257,7 @@
 			files = (
 				8950A6611EDC18EC005A7B1D /* ViewController.swift in Sources */,
 				8950A65F1EDC18EC005A7B1D /* AppDelegate.swift in Sources */,
+				895C7D241F5EA44100AAEECA /* VISimpleSpinnerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
