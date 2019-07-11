@@ -1,3 +1,5 @@
+# Note: don't use this code. It's old and abandoned.
+
 # Spinner
 An activity indicator view. There are many like it, but this one is mine.
 
