@@ -45,7 +45,7 @@ public class VISimpleSpinnerView: UIView {
             containingView.addConstraints(constraints)
         }
 
-        containingView.bringSubview(toFront: self)
+        containingView.bringSubviewToFront(self)
     }
 
     // MARK: - Layout
@@ -74,7 +74,7 @@ public class VISimpleSpinnerView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.white
         label.lineBreakMode = .byTruncatingTail
-        activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        activityIndicatorView = UIActivityIndicatorView(style: .whiteLarge)
         activityIndicatorView.startAnimating()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical

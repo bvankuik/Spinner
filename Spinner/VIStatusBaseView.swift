@@ -58,7 +58,7 @@ public class VIStatusBaseView: UIView {
             containingView.addConstraints(constraints)
         }
 
-        containingView.bringSubview(toFront: self)
+        containingView.bringSubviewToFront(self)
     }
 
     internal func appear() {

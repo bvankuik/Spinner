@@ -94,7 +94,7 @@ public class VISpinnerView: VIStatusBaseView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.white
         label.lineBreakMode = .byTruncatingTail
-        activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        activityIndicatorView = UIActivityIndicatorView(style: .whiteLarge)
         activityIndicatorView.startAnimating()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
